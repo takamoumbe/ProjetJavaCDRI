@@ -69,7 +69,8 @@ public class EntreeStock extends JFrame{
 	public JMenuItem acces_droits;
 	public JMenuItem quitter;
 	public JMenuItem export_stock;
-	public JMenuItem apropos;
+	public JMenuItem apropos; 
+	public JMenuItem modifier_compte;
 	
 	private JLabel jtitre;
 	public JTable jTable;
@@ -183,6 +184,8 @@ public class EntreeStock extends JFrame{
 		this.bmodif.addActionListener(new ListenerGestionnaire(this));
 		this.bEntreeStock.addActionListener(new ListenerGestionnaire(this));
 		this.bimprime.addActionListener(new ListenerGestionnaire(this));
+		this.modifier_compte.addActionListener(new ListenerGestionnaire(this));   
+		
 		
 		/*----------- personnaliser la fenetre ------*/
 		this.setTitle("MOUVEMENT ENTREE DE STOCK");  
@@ -206,7 +209,7 @@ public class EntreeStock extends JFrame{
 		this.bmodif = new JButton("",update);
 		this.bdelete= new JButton("",delete); 
 		this.baffiche= new JButton("",affiche);
-		this.bimprime= new JButton("",imprime); 
+		this.bimprime= new JButton("",imprime);   
 		
 		this.sous_panelModif.add(this.bmodif);
 		this.sous_panelModif.add(this.bdelete);
@@ -435,14 +438,14 @@ public class EntreeStock extends JFrame{
 			Icon annuler = new ImageIcon("images/annuler.png"); 
 			
 			this.personnel  = new JMenu("Acceuil");
-			//this.edit       = new JMenu("Mon Compte");
+			this.edit       = new JMenu("Profil");
 			//this.operations = new JMenu("Opérations");
 			//this.help       = new JMenu("Aide");
 			/*----------------------------------------------------------*/
-			//this.new_pers   = new JMenuItem("Nouveau",img);
-			//this.superviser = new JMenuItem("Superviser",img);
+			this.modifier_compte = new JMenuItem("Modifier Compte",img);
+			//this.superviser    = new JMenuItem("Superviser",img);
 			//this.acces_droits  = new JMenuItem("Droits d'accès",img);
-			this.quitter       = new JMenuItem("Quitter", annuler);
+			this.quitter         = new JMenuItem("Quitter", annuler);
 			//this.export_stock  = new JMenuItem("Exporter le stock",img);
 			//this.apropos       = new JMenuItem("A Propos",img);
 			
@@ -452,15 +455,18 @@ public class EntreeStock extends JFrame{
 			this.personnel.addSeparator();*/
 			this.personnel.add(this.quitter);
 			
+			this.edit.add(this.modifier_compte);
+			this.edit.addSeparator();
+			
 			/*this.operations.add(this.acces_droits);
 			this.operations.addSeparator();
 			this.operations.add(this.export_stock);
 			
 			this.help.add(this.apropos);*/
 			
-			this.jMenuBar.add(this.personnel);
-			/*this.jMenuBar.add(this.edit);
-			this.jMenuBar.add(this.operations);
+			this.jMenuBar.add(this.personnel); 
+			this.jMenuBar.add(this.edit);
+			/*this.jMenuBar.add(this.operations);
 			this.jMenuBar.add(this.help);*/
 			
 		}
@@ -579,9 +585,9 @@ public class EntreeStock extends JFrame{
 		public void barreOutil() {
 			
 			this.bEntreeStock = new JButton(" Entrée Stock ");
-			this.bOperation   = new JButton(" Opérations ");
-			this.bFournisseur = new JButton(" Fournisseurs ");
-			this.bCommandes   = new JButton(" Commandes Fournisseur ");
+			this.bOperation   = new JButton("  ");  
+			this.bFournisseur = new JButton("  ");
+			this.bCommandes   = new JButton("  ");
 			
 			this.menuPanel.add(this.bEntreeStock); 
 			this.menuPanel.add(this.bOperation); 

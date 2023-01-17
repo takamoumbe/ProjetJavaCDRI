@@ -1,14 +1,20 @@
 package model;
 
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.swing.JOptionPane;
+
+import db.DataBase;
+
 public class User {
 	private static int idUser;
 	private String nomUser;
-	private static String login;
+	private static String login; 
 	private static String password;
 	private String contact;
 	private String typeUser;
@@ -31,6 +37,66 @@ public class User {
 	}
 	
 	public User() {
+		
+	}
+	
+	/*------ selectionner un utilisateur --------*/
+	
+	public User select_user(String login, String pass) {
+		User user = new User();
+		DataBase db = new DataBase();
+		db.connect();
+		
+ 		String query = "select * from user where etatUser=0 and login='"+login+"' and password='"+pass+"'";
+ 		
+ 		try {
+ 			PreparedStatement statement = (PreparedStatement) db.getConnection().prepareStatement(query);
+ 			ResultSet resultSet = statement.executeQuery();
+ 			
+ 			if (resultSet.next()) {
+ 				
+ 				user.idUser 	= resultSet.getInt(1);
+ 				user.nomUser	= resultSet.getString(2);
+ 				user.login  	= resultSet.getString(3);
+ 				user.password	= resultSet.getString(4);
+ 				user.contact 	= resultSet.getString(5);
+ 				user.typeUser	= resultSet.getString(6);
+ 				user.etatUser	= resultSet.getInt(7);
+ 				user.statutUser	= resultSet.getString(8);
+ 				user.createAt 	= resultSet.getString(9);
+ 				user.updateAt   = resultSet.getString(10);
+ 				user.deleteAt   = resultSet.getString(11);
+ 				
+ 			}else {
+ 				user = null;
+ 			}
+ 					
+		} catch (Exception e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(null, ""+e.getMessage(), "Messsage", JOptionPane.CLOSED_OPTION);
+		}
+		
+		return user;
+	}
+	
+	/*----- modifier un utilisateur -----*/
+	public boolean update_user(User user) {
+		
+		DataBase db = new DataBase();
+		db.connect();
+		
+ 		String query = "update user set password='"+user.password+"' where etatUser=0 and idUser="+user.idUser+"";
+ 		
+ 		try {
+ 			PreparedStatement statement = (PreparedStatement) db.getConnection().prepareStatement(query);
+ 			int result = statement.executeUpdate();
+ 		}catch (Exception e) {
+			// TODO: handle exception
+ 			JOptionPane.showMessageDialog(null, ""+e.getMessage(), "Messsage", JOptionPane.CLOSED_OPTION);
+ 			return false;
+		}
+		
+		return true;
 		
 	}
 

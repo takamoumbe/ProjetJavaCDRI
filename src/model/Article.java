@@ -51,7 +51,7 @@ public class Article {
 		this.nomArticle  = nomArticle;  
 	}
 	
-	public Article() {
+	public Article() {  
 		
 	}
 	
@@ -63,9 +63,9 @@ public class Article {
 		
 		try {
 			// selectionner le fournisseur
-			String query = "select idFournisseur from fournisseur where nomFournisseur = '"+article.fournisseur+"'";
+			String query = "select idFournisseur from fournisseur where nomFournisseur = '"+article.fournisseur+"'";  
 			PreparedStatement statement1 = (PreparedStatement) db.getConnection().prepareStatement(query);
-			ResultSet resultSet = statement1.executeQuery();
+			ResultSet resultSet = statement1.executeQuery();  
 			
 			if (resultSet.next()) {
 				// selectionner l article
@@ -135,8 +135,8 @@ public class Article {
 						PreparedStatement statement3 = (PreparedStatement) db.getConnection().prepareStatement(query4); 
 						statement3.executeUpdate();
 						
-						statement3.close();
-						st.close();
+						 statement3.close();
+						 st.close();
 						 db.close();
 						 JOptionPane.showMessageDialog(null, "Article enregistrer", "Message",JOptionPane.INFORMATION_MESSAGE);
 					}

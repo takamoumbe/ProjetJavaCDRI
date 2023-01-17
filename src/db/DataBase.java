@@ -19,7 +19,7 @@ public class DataBase {
 			System.out.println("Erreur de connexion");
 		}catch (SQLException sqlException) {
 			sqlException.printStackTrace();
-			System.out.println("Erreur de connexion"); 
+			System.out.println("Erreur de connexion");   
 		}
 	}
 	

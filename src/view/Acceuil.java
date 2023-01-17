@@ -26,6 +26,10 @@ public class Acceuil {
 		/*EntreeStock entreeStock = new EntreeStock();
 		entreeStock.setVisible(true);*/
 		
+		/*Parametre parametre = new Parametre();
+		
+		parametre.setVisible(true);*/
+		
 	}
 	
 }

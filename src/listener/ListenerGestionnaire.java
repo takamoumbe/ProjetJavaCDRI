@@ -19,6 +19,7 @@ import view.EditerArticle;
 import view.EntreeQuantiteStock;
 import view.EntreeStock;
 import view.Login;
+import view.Parametre;
 import view.ShowArticle;
 
 public class ListenerGestionnaire implements ActionListener {
@@ -38,7 +39,7 @@ public class ListenerGestionnaire implements ActionListener {
 			String ville   = this.gestionnaire.tville.getText().trim();
 			String pays    = this.gestionnaire.tpays.getText().trim();
 			String addresse= this.gestionnaire.taddresse.getText().trim();
-			String tel     = this.gestionnaire.ttel.getText().trim();
+			String tel     = this.gestionnaire.ttel.getText().trim();  
 			
 			if (nomFour.equals("") || ville.equals("") || pays.equals("") || addresse.equals("") || tel.equals("")) {
 				JOptionPane.showMessageDialog(null, "Remplir tous les champs","Message",JOptionPane.YES_OPTION);
@@ -155,6 +156,7 @@ public class ListenerGestionnaire implements ActionListener {
 			entreeQuantiteStock.setVisible(true);
 			
 		}else if(ob == this.gestionnaire.bimprime) {
+			
 			PdfItext pdfItext = new PdfItext();
 			
 			String file = "liste_article.pdf";
@@ -168,6 +170,21 @@ public class ListenerGestionnaire implements ActionListener {
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(null, " "+e.getMessage(),"Message",JOptionPane.YES_OPTION);
 			}
+			
+		}else if(ob == this.gestionnaire.modifier_compte){
+			
+			// appel de la fenetre pour renitialisation de mot de passe 
+			try {
+				Parametre parametre = new Parametre();
+				parametre.setVisible(true);
+				
+			} catch (IOException e) {  
+				// TODO Auto-generated catch block  
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, " "+e.getMessage(),"Message",JOptionPane.YES_OPTION);  
+			}
+			
+			
 		}
 	}
 	
