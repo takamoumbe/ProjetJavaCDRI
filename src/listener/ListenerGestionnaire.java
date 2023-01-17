@@ -14,6 +14,7 @@ import javax.swing.event.ListSelectionEvent;
 import db.DataBase;
 import model.Article;
 import model.Fournisseur;
+import model.PdfItext;
 import view.EditerArticle;
 import view.EntreeQuantiteStock;
 import view.EntreeStock;
@@ -149,8 +150,24 @@ public class ListenerGestionnaire implements ActionListener {
 				editerArticle.setVisible(true);  
 			}	
 		}else if(ob == this.gestionnaire.bEntreeStock) {
+			
 			EntreeQuantiteStock entreeQuantiteStock = new EntreeQuantiteStock();
 			entreeQuantiteStock.setVisible(true);
+			
+		}else if(ob == this.gestionnaire.bimprime) {
+			PdfItext pdfItext = new PdfItext();
+			
+			String file = "liste_article.pdf";
+			try
+			{
+				pdfItext.listeArticlePDF(file);
+				JOptionPane.showMessageDialog(null, " Impression réussir ","Message",JOptionPane.INFORMATION_MESSAGE);
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, " "+e.getMessage(),"Message",JOptionPane.YES_OPTION);
+			}
 		}
 	}
 	

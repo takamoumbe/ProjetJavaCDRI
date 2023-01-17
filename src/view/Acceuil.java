@@ -3,6 +3,7 @@ package view;
 import java.io.IOException;
 
 import db.DataBase;
+import model.PdfItext;
 
 public class Acceuil {
 	
@@ -12,9 +13,9 @@ public class Acceuil {
 		DataBase db = new DataBase();
 		db.connect();
 		db.close();
-		
+		  
 		Login login = new Login();
-		login.setVisible(true); 
+		login.setVisible(true);
 		
 		/*Services service = new Services();
 		service.setVisible(true);*/
@@ -24,6 +25,7 @@ public class Acceuil {
 		
 		/*EntreeStock entreeStock = new EntreeStock();
 		entreeStock.setVisible(true);*/
+		
 	}
 	
 }

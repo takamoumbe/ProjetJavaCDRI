@@ -182,6 +182,7 @@ public class EntreeStock extends JFrame{
 		
 		this.bmodif.addActionListener(new ListenerGestionnaire(this));
 		this.bEntreeStock.addActionListener(new ListenerGestionnaire(this));
+		this.bimprime.addActionListener(new ListenerGestionnaire(this));
 		
 		/*----------- personnaliser la fenetre ------*/
 		this.setTitle("MOUVEMENT ENTREE DE STOCK");  
