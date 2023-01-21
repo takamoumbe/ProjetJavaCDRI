@@ -62,28 +62,28 @@ public class Parametre extends JFrame{
 		this.tlogin = new JTextField(""+user.getLogin());
 		this.tlogin.setBounds(mgLeft,mgTop+35, width, height);
 		this.tlogin.setFont(new Font("Serif", Font.BOLD, 15));
-		this.tlogin.disable();
+		this.tlogin.disable();  
 		this.panel.add(tlogin);  
 		
-		this.jpassword = new JLabel("Ancien Mot de passe");
-		this.jpassword.setFont(new Font("Arial",Font.BOLD,17));
-		this.jpassword.setBounds(mgLeft,mgTop+35+50, width, height);
-		this.panel.add(jpassword);
-		
-		this.tpassword = new JPasswordField();
-		this.tpassword.setBounds(mgLeft,mgTop+35+50+35, width, height);
-		this.tpassword.setFont(new Font("Serif", Font.BOLD, 15));
-		this.panel.add(tpassword); 
-		
-		this.jlastPass = new JLabel("Nouveau Mot de passe");
+		this.jlastPass = new JLabel("Ancien Mot de passe");
 		this.jlastPass.setFont(new Font("Arial",Font.BOLD,17));
-		this.jlastPass.setBounds(mgLeft,mgTop+35+50+35+40, width, height);
-		this.panel.add(jlastPass);  
-		  
+		this.jlastPass.setBounds(mgLeft,mgTop+35+50, width, height);
+		this.panel.add(jlastPass);
+		
 		this.lastpass = new JPasswordField();
-		this.lastpass.setBounds(mgLeft,mgTop+35+50+35+35+40, width, height);
+		this.lastpass.setBounds(mgLeft,mgTop+35+50+35, width, height);
 		this.lastpass.setFont(new Font("Serif", Font.BOLD, 15));
-		this.panel.add(lastpass);   
+		this.panel.add(lastpass); 
+		
+		this.jpassword = new JLabel("Nouveau Mot de passe");
+		this.jpassword.setFont(new Font("Arial",Font.BOLD,17));
+		this.jpassword.setBounds(mgLeft,mgTop+35+50+35+40, width, height);
+		this.panel.add(jpassword);  
+		  
+		this.tpassword = new JPasswordField();
+		this.tpassword.setBounds(mgLeft,mgTop+35+50+35+35+40, width, height);
+		this.tpassword.setFont(new Font("Serif", Font.BOLD, 15));
+		this.panel.add(tpassword);   
 		
 		this.bvalider = new JButton("Enregistrer");
 		this.bvalider.setBackground(Color.BLACK); 

@@ -35,7 +35,7 @@ public class ListenerLogin implements ActionListener{
 			 
 			if (login_clavier.equals("") || password.equals("")) { 
 				// afficher le message sur la page
-				JOptionPane.showMessageDialog(null, "Svp Remplisser tous les champs", "Message", JOptionPane.OK_OPTION);
+				JOptionPane.showMessageDialog(null, "Svp Remplisser tous les champs", "Message", JOptionPane.OK_OPTION);  
 			}else {
 				//filtrer la taille du login et mot de passe
 				

@@ -38,7 +38,7 @@ public class Login extends JFrame{
 		this.setIconImage(new ImageIcon("images/logo.png").getImage());
 		Icon img = new ImageIcon("images/logo.png"); 
 		pic  = new JLabel(img);
-		this.pic.setBounds(mgLeft,mgTop-200, width, height+100);
+		this.pic.setBounds(mgLeft,mgTop-155, width, height+145);
 		this.panel.add(pic);
 		
 		this.jlogin     = new JLabel("Login");
@@ -49,6 +49,7 @@ public class Login extends JFrame{
 		this.tlogin = new JTextField();
 		this.tlogin.setBounds(mgLeft,mgTop+35, width, height);
 		this.tlogin.setFont(new Font("Serif", Font.BOLD, 15)); 
+		this.tlogin.setHorizontalAlignment((int) CENTER_ALIGNMENT);
 		this.panel.add(tlogin); 
 		
 		this.jpassword = new JLabel("Mot de passe");
@@ -59,10 +60,11 @@ public class Login extends JFrame{
 		this.tpassword = new JPasswordField();
 		this.tpassword.setBounds(mgLeft,mgTop+35+50+35, width, height);
 		this.tpassword.setFont(new Font("Serif", Font.BOLD, 15));
+		this.tpassword.setHorizontalAlignment((int) CENTER_ALIGNMENT);  
 		this.panel.add(tpassword);   
 		
 		this.bconnexion = new JButton("Connexion");
-		this.bconnexion.setBackground(Color.BLACK); 
+		this.bconnexion.setBackground(new Color(15, 5, 107));   
 		this.bconnexion.setForeground(Color.WHITE);
 		this.bconnexion.setBounds(mgLeft,mgTop+35+50+35+100, width, height);
 		this.panel.add(bconnexion); 

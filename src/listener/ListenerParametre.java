@@ -23,8 +23,8 @@ public class ListenerParametre implements ActionListener{
 		
 		if(ob == this.parametre.bvalider) {
 			String login_clavier    = this.parametre.tlogin.getText().trim();
-			String password         = this.parametre.lastpass.getText().trim();     
-			String ancienPass       = this.parametre.tpassword.getText().trim();  
+			String ancienPass       = this.parametre.lastpass.getText().trim();     
+			String password         = this.parametre.tpassword.getText().trim();  
 			
 			if (login_clavier.equals("") || password.equals("") || ancienPass.equals("")) { 
 				// afficher le message sur la page
@@ -37,6 +37,9 @@ public class ListenerParametre implements ActionListener{
 					JOptionPane.showMessageDialog(null, "Mot de passe Incorrect", "Message", JOptionPane.OK_OPTION);
 					
 				}else {
+					
+					user.setPassword(password);
+					
 					boolean result = user.update_user(user);
 					if (result == false) {
 						JOptionPane.showMessageDialog(null, "L'opération a échouer", "Message", JOptionPane.OK_OPTION);

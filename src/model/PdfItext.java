@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import java.time.format.TextStyle;
 import java.util.StringTokenizer;
 
 import javax.swing.*;
@@ -44,6 +45,7 @@ public class PdfItext {
 		/*----- entete -----*/
 		ImageData imageData = ImageDataFactory.create("images/logo.png");
 		Image img = new Image(imageData); 
+		img.scaleAbsolute(120, 100);
 		doc.add(img);
 		PdfFont myFont = PdfFontFactory.createFont(StandardFonts.TIMES_ROMAN);
 		Paragraph p1 = new Paragraph();
@@ -52,6 +54,8 @@ public class PdfItext {
 		p1.setFont(myFont);
 		p1.setFontSize(20);  
 		doc.add(p1);
+		
+		doc.showTextAligned("Istock Cm", 260, 400, TextAlignment.CENTER, 45f*(float)Math.PI/180f);
 		
 		/*------- faire le tableau pour la liste ----*/
 		Table table = new Table(new float[]{2, 6, 4, 4, 3, 3, 3});

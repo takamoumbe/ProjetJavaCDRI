@@ -70,19 +70,24 @@ public class User {
  			}else {
  				user = null;
  			}
+ 			
+ 			statement.close();
+ 			resultSet.close();
  					
 		} catch (Exception e) {
 			// TODO: handle exception
 			JOptionPane.showMessageDialog(null, ""+e.getMessage(), "Messsage", JOptionPane.CLOSED_OPTION);
 		}
 		
+ 		db.close();
+ 		
 		return user;
 	}
 	
 	/*----- modifier un utilisateur -----*/
 	public boolean update_user(User user) {
 		
-		DataBase db = new DataBase();
+		DataBase db = new DataBase(); 
 		db.connect();
 		
  		String query = "update user set password='"+user.password+"' where etatUser=0 and idUser="+user.idUser+"";
@@ -90,12 +95,16 @@ public class User {
  		try {
  			PreparedStatement statement = (PreparedStatement) db.getConnection().prepareStatement(query);
  			int result = statement.executeUpdate();
+ 			
+ 			statement.close();
+ 			
  		}catch (Exception e) {
 			// TODO: handle exception
- 			JOptionPane.showMessageDialog(null, ""+e.getMessage(), "Messsage", JOptionPane.CLOSED_OPTION);
+ 			JOptionPane.showMessageDialog(null, ""+e.getMessage(), "Messsage", JOptionPane.ERROR_MESSAGE);
  			return false;
 		}
-		
+ 		
+		db.close();
 		return true;
 		
 	}
